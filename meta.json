@@ -1,0 +1,12 @@
+{
+  "name": "JIRA issue",
+  "summary": "Creates an issue, comments on one, or moves it through a workflow.",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "jira",
+    "issue-tracker"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-jira-issue"
+}

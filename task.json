@@ -1,0 +1,106 @@
+{
+  "atomCode": "jira-issue",
+  "name": "JIRA issue",
+  "version": "1.0.0",
+  "description": "Creates an issue, comments on one, or moves it through a workflow.",
+  "execution": {
+    "packagePath": "jira-issue.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp jira-issue.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "baseUrl": {
+      "label": "JIRA 地址",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "username": {
+      "label": "用户名（留空则用 Bearer token）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "token": {
+      "label": "密码 / 访问令牌",
+      "type": "password",
+      "default": ""
+    },
+    "action": {
+      "label": "动作（create / comment / transition）",
+      "type": "vuex-input",
+      "default": "create"
+    },
+    "projectKey": {
+      "label": "项目 Key（create）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "issueType": {
+      "label": "问题类型",
+      "type": "vuex-input",
+      "default": "Task"
+    },
+    "summary": {
+      "label": "标题（create）",
+      "type": "textarea",
+      "default": ""
+    },
+    "description": {
+      "label": "描述（create）",
+      "type": "textarea",
+      "default": ""
+    },
+    "fields": {
+      "label": "额外字段（JSON，合并进 fields）",
+      "type": "textarea",
+      "default": ""
+    },
+    "issueKey": {
+      "label": "Issue Key（comment/transition）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "comment": {
+      "label": "评论内容（comment）",
+      "type": "textarea",
+      "default": ""
+    },
+    "transition": {
+      "label": "流转名或 id（transition）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "timeoutSeconds": {
+      "label": "超时（秒）",
+      "type": "vuex-input",
+      "default": "30"
+    }
+  },
+  "output": {
+    "action": {
+      "type": "string",
+      "description": "执行的动作"
+    },
+    "issueKey": {
+      "type": "string",
+      "description": "issue key"
+    },
+    "issueUrl": {
+      "type": "string",
+      "description": "issue 链接（create）"
+    },
+    "commentId": {
+      "type": "string",
+      "description": "评论 id（comment）"
+    },
+    "transitionId": {
+      "type": "string",
+      "description": "流转 id（transition）"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}
