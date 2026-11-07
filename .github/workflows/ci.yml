@@ -37,4 +37,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: jira-issue-atom
-          path: atom/dist/jira-issue/
+          path: atom/target/dist/jira-issue/
